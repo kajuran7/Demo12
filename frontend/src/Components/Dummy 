@@ -1,0 +1,1019 @@
+// // Signup Component With Out Validation 
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// // import axios from "axios";
+
+// const Signup = () => {
+//   const navigate = useNavigate()
+//   const [formState, setFormState,] = useState({
+//    name:'',
+//     email: '',
+//     password: ''
+//   });
+
+//   const Registeruser = async (userData) => {
+//     try {
+//       const response = await fetch ('${process.env.REACT_APP_BACKEND_URL}/api/users/signup', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(userData)
+//       }); 
+//       if (!response.ok) 
+     
+//       { 
+      
+//         throw new Error('Error Registation');
+        
+//       }
+//       const data = await response.json();
+//       toast.success('Registration successful!');
+//       navigate('/Home')
+//       return data;
+//     } catch (error) {
+//       console.error(error);
+//       toast.error('Registation Failed !');
+//       navigate('/Signup')
+//     }
+//   };
+//   const handleInputChange = (event) => {
+//     setFormState({
+//       ...formState,
+//       [event.target.name]: event.target.value
+//     });
+//   };
+//   const handleFormSubmit = async (event) => {
+//     event.preventDefault();
+//     try {
+//       const data = await Registeruser(formState);
+//       console.log(data);
+     
+     
+
+//     } catch (error)  {
+   
+//       console.error(error); 
+      
+      
+//     } 
+//   };
+  
+
+
+
+
+
+
+
+
+//   // LOGIN
+
+//   const [formState1, setFormState1] = useState({
+   
+//      email: '',
+//      password: ''
+//    });
+//    const Loginuser = async (userData) => {
+//      try {
+//        const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/users/login',
+//         {
+//          method: 'POST',
+//          headers: {
+//            'Content-Type': 'application/json'
+//          },
+//          body: JSON.stringify(userData)
+//        });
+       
+       
+//        if (!response.ok ) {
+//         toast.error("Error Login")
+//          throw new Error('Error Login');
+      
+//        }
+//        const data = await response.json();
+
+//        navigate('/Home')
+//        toast.success('Login successful!', {
+//         position: "top-right",
+//         autoClose: 1000,
+//         hideProgressBar: false,
+//         closeOnClick: true,
+//         pauseOnHover: true,
+//         draggable: true,
+//         progress: undefined,
+//     }); 
+//        return data;
+//      } catch (error)   
+   
+    
+//       {
+//        console.error(); 
+     
+//        navigate('/signup')
+
+//      }
+//    };
+
+//    const handleInputChange1 = (event) => {
+//      setFormState1({
+//        ...formState1,
+//        [event.target.name]: event.target.value
+//      });
+//    };
+//    const handleFormSubmit1 = async (event) => {
+//      event.preventDefault();
+//      try {
+//        const data = await Loginuser(formState1);
+//        console.log(data);
+//      } catch (error) {
+//        console.error(error);
+//      }
+//    };
+   
+ 
+ 
+ 
+ 
+
+
+
+//     return(
+ 
+// <div>
+
+//   <body ClassName ="LoginLL" /> 
+// <div className="container" 
+// style={{marginLeft:'400px',width:'1000px',}}>
+//     <input type="checkbox" id="flip"/>
+//     <div className="cover">
+//       <div className="front">
+//         <img src={require("../Components/assets/Login2.png")} alt=""/>
+//         <div className="text">
+       
+//         </div>
+//       </div>
+
+//       <div className="back">
+//         <img className="backImg" src={require("../Components/assets/Login2.png")} alt=""/>
+//         <div className="text">
+        
+//         </div>
+//       </div>
+//     </div>
+//     <div className="forms">
+//         <div className="form-content">
+//           <div className="login-form">
+//             <div className="title">Login</div>
+//           <form onSubmit={handleFormSubmit1}>
+//              <div className="input-boxes">
+//               <div className="input-box">
+//                 <i className="fas fa-envelope"></i>
+//                 <input name="email" value={formState1.email} onChange={handleInputChange1} 
+//                 type="text" placeholder="Enter your email" required/>
+//               </div>
+
+//               <div className="input-box">
+//                 <i className="fas fa-lock"></i>
+//                 <input  type="password" name='password' value={formState1.password}onChange={handleInputChange1}
+//                  placeholder="Enter your password" required/>
+//               </div>
+
+//               <div className="text">
+
+//               </div>
+//               <div className="button input-box">
+//                 <input type="submit" onSubmit={handleFormSubmit1}  value="LOGIN"/>
+//               </div>
+//               <div className="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+//             </div>
+//         </form>
+//       </div>
+
+
+
+
+//         <div className="signup-form">
+//           <div className="title">Signup</div>
+//         <form onSubmit={handleFormSubmit}  >
+
+//             <div className="input-boxes">
+//               <div className="input-box">
+//                 <i className="fas fa-user"></i>
+//                 <input name="name" value={formState.name} onChange={handleInputChange} 
+//                  type="text" placeholder="Enter your name" />
+//               </div> 
+//               <div className="input-box">
+//                 <i className="fas fa-envelope"></i>
+//                 <input  name="email" value={formState.email} onChange={handleInputChange} 
+//                 type="text" placeholder="Enter your email" />
+//               </div>
+//               <div className="input-box">
+//                 <i className="fas fa-lock"></i>
+//                 <input name='password' value={formState.password} onChange={handleInputChange}
+//                  type="password"  placeholder="Enter your password" />
+//               </div>
+//               <div className="button input-box"> 
+//                 <input   onSubmit={handleFormSubmit} 
+//                  type="submit" value="SIGNUP"/>
+//               </div>
+//               <div className="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+//             </div>
+//       </form>
+//     </div>
+//     </div>
+//     </div>
+//   </div>
+//   <body/>
+
+ 
+// </div>
+//     )
+// }
+// export default Signup;
+
+
+
+
+// // UPDATED FILTER FOR DESIGN 
+// import React, { useState, useEffect } from "react";
+
+// function Designs() {
+//   const [designs, setDesigns] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [selectedCategory, setSelectedCategory] = useState("");
+//   const [filteredDesigns, setFilteredDesigns] = useState([]);
+
+//   useEffect(() => {
+//     fetch("${process.env.REACT_APP_BACKEND_URL}/api/design/getdesign")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         if (Array.isArray(data)) {
+//           setDesigns(data);
+//           setFilteredDesigns(data); // Set filtered designs initially to all designs
+//         } else {
+//           console.error("Data is not an array:", data);
+//         }
+//       })
+//       .catch((error) => console.error("Error fetching data:", error));
+//   }, []);
+
+//   const handleSearch = (e) => {
+//     setSearchQuery(e.target.value);
+//     filterDesigns(selectedCategory, e.target.value);
+//   };
+
+//   const handleCategoryClick = (category) => {
+//     setSelectedCategory(category);
+//     filterDesigns(category, searchQuery);
+//   };
+
+//   const filterDesigns = (category, query) => {
+//     const filtered = designs.filter((design) => {
+//       const categoryMatch = !category || design.category === category;
+//       const queryMatch =
+//         design.category.toLowerCase().includes(query.toLowerCase()) ||
+//         design.name.toLowerCase().includes(query.toLowerCase());
+//       return categoryMatch && queryMatch;
+//     });
+//     setFilteredDesigns(filtered);
+//   };
+
+//   const handleButtonClick = () => {
+//     // Handle button click action here
+//     console.log("Button clicked!");
+//   };
+
+//   return (
+//     <div>
+//       <div className="container_fill">
+//         <div className="search-box">
+//           <i className="bx bx-search"></i>
+//           <input
+//             type="text"
+//             placeholder="More Designs ?"
+//             value={searchQuery}
+//             onChange={handleSearch}
+//           />
+//         </div>
+//         <div className="category-buttons">
+//           {/* Buttons for different categories */}
+//           <button onClick={() => handleCategoryClick("Birthday")} className="btn btn-primary">Birthday</button>
+//           <button onClick={() => handleCategoryClick("Wedding")} className="btn btn-primary">Wedding</button>
+//           <button onClick={() => handleCategoryClick("Ceremoney")} className="btn btn-primary">Ceremoney</button>
+//           <button onClick={() => handleCategoryClick("Frames")} className="btn btn-primary">Frames</button>
+//           <button onClick={() => handleCategoryClick("All")} className="btn btn-primary">All</button>
+//         </div>
+//         <div className="container my-5">
+//           {filteredDesigns.map((design) => (
+//             <div className="row" key={design._id} data-name={design.name}>
+//               <div className="col-lg-6">
+//                 <br />
+//                 <br />
+//                 <img
+//                   className="w-100 shadow"
+//                   src={design.designImage.url}
+//                   alt={design.name}
+//                 />
+//               </div>
+//               <div className="col-lg-6">
+//                 <div className="p-5 mt-4">
+//                   <h1 className="display-4">{design.category}</h1>
+//                   <p className="lead">Name: {design.name}</p>
+//                   <p className="lead">Sheetsize: {design.sheetsize}</p>
+//                   <p className="lead">Price: {design.price}</p>
+//                   <p className="lead">Size: {design.size}</p>
+//                   <a href="1" className="btn btn-outline-dark">
+//                     Pay Now
+//                   </a>
+//                 </div>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Designs;
+
+
+
+
+
+
+// // DESIGN FORM 
+// import React, { useState } from 'react';
+
+// const DesignForm = () => {
+//   const [name, setname] = useState('');
+//   const [category, setcategory] = useState('');
+//   const [price, setprice] = useState('');
+//   const [size, setsize] = useState('');
+//   const [sheetsize, setsheetsize] = useState(''); 
+//   const [description, setdescription] = useState('');
+//   const [designImage, setdesignImage] = useState(null);
+
+//   const handlenameChange = (e) => { 
+//     setname(e.target.value);
+//   };
+
+//   const handlecategoryChange = (e) => {
+//     setcategory(e.target.value);
+//   };
+
+//   const handlepriceChange = (e) => {
+//     setprice(e.target.value);
+//   };
+
+//   const handlesizeChange = (e) => {
+//     setsize(e.target.value);
+//   };
+
+//   const handlesheetsizeChange = (e) => {
+//     setsheetsize(e.target.value);
+//   };
+
+//   const handledescriptionChange = (e) => {
+//     setdescription(e.target.value);
+//   };
+
+//   const handledesignImageChange = (e) => {
+//     setdesignImage(e.target.files[0]);
+//   };
+
+//   const handleUpload = async () => {
+//     const formData = new FormData();
+//     formData.append('name', name);
+//     formData.append('category', category);
+//     formData.append('price', price);
+//     formData.append('size', size);
+//     formData.append('sheetsize', sheetsize);
+//     formData.append('description', description);
+//     formData.append('designImage', designImage);
+
+//     try {
+//       const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/design/createdesign', {
+//         method: 'POST',
+//         body: formData,
+//       });
+
+//       if (response.ok) {
+//         console.log('Upload successful!');
+//       } else {
+//         console.error('Upload failed.');
+//       }
+//     } catch (error) {
+//       console.error('Error uploading:', error);
+//     }
+//   };
+
+
+//   return (
+//     <div className="ventor-form">
+//       <h1>New Design </h1>
+//       <label htmlFor="name">Name:</label>
+//       <input type="text" id="name" value={name} onChange={handlenameChange} required />
+
+//       <label htmlFor="category">category:</label>
+//       <input type="text" id="category" value={category} onChange={handlecategoryChange} required />
+
+//       <label htmlFor="price">price:</label>
+//       <input type="text" id="price" value={price} onChange={handlepriceChange} required />
+
+//       <label htmlFor="size">size:</label>
+//       <input type="text" id="size" value={size} onChange={handlesizeChange} required />
+
+//       <label htmlFor="sheetsize">sheetsize:</label>
+//       <input type="sheetsize" id="sheetsize" value={sheetsize} onChange={handlesheetsizeChange} required />
+
+//       <label htmlFor="description">description:</label>
+//       <input type="text" id="description" value={description} onChange={handledescriptionChange} required />
+
+//       <label htmlFor="designImage">Image:</label>
+//       <input type="file" id="designImage" onChange={handledesignImageChange} accept="image/*" required />
+
+//       <button type="button" onClick={handleUpload}>
+//         Upload
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default DesignForm;
+
+
+
+
+// // Admin can move to admin panell
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+// const Signup = () => {
+//   const navigate = useNavigate();
+//   const [formState, setFormState] = useState({
+//     name: '',
+//     email: '',
+//     password: '',
+//   });
+ 
+//   const Registeruser = async (userData) => {
+//     try {
+//       const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/users/signup', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(userData),
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Error Registration');
+//       }
+
+//       const data = await response.json();
+//       toast.success('Registration successful!');
+//       navigate('/Home');
+//       return data;
+//     } catch (error) {
+//       console.error(error);
+//       toast.error('Registration Failed!');
+//     }
+//   };
+
+//   const handleInputChange = (event) => {
+//     setFormState({
+//       ...formState,
+//       [event.target.name]: event.target.value,
+//     });
+//   };
+
+//   const handleFormSubmit = async (event) => {
+//     const { name, email, password } = formState;
+
+//   // Basic name validation
+//   if (!name.trim()) {
+//     toast.error('Name is required');
+//     return;
+//   }
+
+//   // Basic email validation
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   if (!emailRegex.test(email)) {
+//     toast.error('Invalid email address');
+//     return;
+//   }
+
+//   // Password length validation
+//   if (password.length < 6) {
+//     toast.error('Password must be at least 6 characters long');
+//     return;
+//   }
+
+//   try {
+//     await Registeruser(formState);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
+
+
+
+
+//   // LOGIN
+
+//   const [formState1, setFormState1] = useState({
+//     email: '',
+//     password: '',
+//   });
+
+//   const Loginuser = async (userData) => {
+//     try {
+//       const response = await fetch('${process.env.REACT_APP_BACKEND_URL}/api/users/login', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(userData),
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Error Login');
+//       }
+
+//       const data = await response.json();
+//       toast.success('Login successful!', {
+//         position: "top-right",
+//         autoClose: 1000,
+//         hideProgressBar: false,
+//         closeOnClick: true,
+//         pauseOnHover: true,
+//         draggable: true,
+//         progress: undefined,
+//       });
+
+//     // Redirect based on user role
+//     if (data.role === 'admin') {
+//       navigate('/Admin');
+//     } else {
+//       navigate('/Home');
+//     }
+
+//     return data;
+//   } catch (error) {
+//     console.error(error);
+//     toast.error('Login Failed!');
+//     navigate('/Signup');
+//   }
+// };
+
+
+//   const handleInputChange1 = (event) => {
+//     setFormState1({
+//       ...formState1,
+//       [event.target.name]: event.target.value,
+//     });
+//   };
+
+//   const handleFormSubmit1 = async (event) => {
+//     event.preventDefault();
+//     const { email, password } = formState1;
+
+//     // Basic email validation
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     if (!emailRegex.test(email)) {
+//       toast.error('Invalid email address');
+//       return;
+//     }
+  
+//     // Password length validation
+//     if (password.length < 6) {
+//       toast.error('Password must be at least 6 characters long');
+//       return;
+//     }
+  
+//     try {
+//       await Loginuser(formState1);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//     return(
+ 
+// <div>
+
+//   <body ClassName ="LoginLL" /> 
+// <div className="container" 
+// style={{marginLeft:'400px',width:'1000px',}}>
+//     <input type="checkbox" id="flip"/>
+//     <div className="cover">
+//       <div className="front">
+//         <img src={require("../Components/assets/Login2.png")} alt=""/>
+//         <div className="text">
+       
+//         </div>
+//       </div>
+
+//       <div className="back">
+//         <img className="backImg" src={require("../Components/assets/Login2.png")} alt=""/>
+//         <div className="text">
+        
+//         </div>
+//       </div>
+//     </div>
+//     <div className="forms">
+//         <div className="form-content">
+//           <div className="login-form">
+//             <div className="title">Login</div>
+//           <form onSubmit={handleFormSubmit1}>
+//              <div className="input-boxes">
+//               <div className="input-box">
+//                 <i className="fas fa-envelope"></i>
+//                 <input name="email" value={formState1.email} onChange={handleInputChange1} 
+//                 type="text" placeholder="Enter your email" required/>
+//               </div>
+
+//               <div className="input-box">
+//                 <i className="fas fa-lock"></i>
+//                 <input  type="password" name='password' value={formState1.password}onChange={handleInputChange1}
+//                  placeholder="Enter your password" required/>
+//               </div>
+
+//               <div className="text">
+
+//               </div>
+//               <div className="button input-box">
+//                 <input type="submit"  value="LOGIN"/>
+//               </div>
+//               <div className="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+//             </div>
+//         </form>
+//       </div>
+
+
+
+
+//         <div className="signup-form">
+//           <div className="title">Signup</div>
+//         <form onSubmit={handleFormSubmit}  >
+
+//             <div className="input-boxes">
+//               <div className="input-box">
+//                 <i className="fas fa-user"></i>
+//                 <input name="name" value={formState.name} onChange={handleInputChange} 
+//                  type="text" placeholder="Enter your name" />
+//               </div> 
+//               <div className="input-box">
+//                 <i className="fas fa-envelope"></i>
+//                 <input  name="email" value={formState.email} onChange={handleInputChange} 
+//                 type="text" placeholder="Enter your email" />
+//               </div>
+//               <div className="input-box">
+//                 <i className="fas fa-lock"></i>
+//                 <input name='password' value={formState.password} onChange={handleInputChange}
+//                  type="password"  placeholder="Enter your password" />
+//               </div>
+//               <div className="button input-box"> 
+//                 <input   
+//                  type="submit" value="SIGNUP"/>
+//               </div>
+//               <div className="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+//             </div>
+//       </form>
+//     </div>
+//     </div>
+//     </div>
+//   </div>
+//   <body/>
+
+ 
+// </div>
+//     )
+// }
+// export default Signup;
+
+
+
+// // ORDER WORKED 
+// import React, { useState, useEffect } from "react"; 
+// import { Link } from "react-router-dom";
+// function Designs () {
+//   const [design, setdesign] = useState([]);
+//   const [searchQuery, setSearchQuery] = useState("");
+
+//   useEffect(() => { 
+//     fetch("${process.env.REACT_APP_BACKEND_URL}/api/design/getdesign")
+    
+//       .then((response) => response.json())
+//       .then((data) => {
+//         if (Array.isArray(data)) {
+//           setdesign(data);
+//         } else {
+//           console.error("Data is not an array:", data);
+//         }
+//       })
+//       .catch((error) => console.error("Error fetching data:", error));
+//   }, []);
+
+ 
+//   const handleSearch = (e) => {
+//     setSearchQuery(e.target.value);
+//   };
+//   const filtereddesigns = design.filter((design) =>
+//   design.category.toLowerCase().includes(searchQuery.toLowerCase())
+// );
+
+
+//     return(
+
+      
+// <div>
+
+// <div className="container_fill" >
+// <div className="search-box">
+//           <i className="bx bx-search"></i>
+//           <input
+//             type="text"
+//             placeholder="More Designs ?"
+//             value={searchQuery}
+//             onChange={handleSearch}
+//           />
+//         </div>
+// <div class="container my-5" style={{paddingLeft:"50px", width:"1400px"}}>
+
+//         {filtereddesigns.map((design) => (
+//                 <div class="row"> 
+//                     <div class="col-lg-6"   style={{ width:"700px"}}  key={design._id} data-name={design.name}><br/>
+                 
+//                     <br/>
+//                         <img class="w-100 shadow" src={design.designImage.url}alt={design.name}/>   
+//                     </div> 
+//                     <div class="col-lg-6 "  style={{ paddingTop:"80px", textAlign:"left", paddingLeft:"100px",width:"500px"}} >
+//                         <div class="p-5 mt-4">
+//                             <h1 class="display">{design.category}</h1>
+//                             <p class="lead">Name :{design.name}</p>
+//                             <p class="lead">Sheetsize: {design.sheetsize}</p>
+//                             <p class="lead">Price:{design.price}</p> 
+//                             <p class="lead">Size:{design.size}</p>
+//                            <Link to = {`/designs/${design._id}`}>
+//                             <a href = "1 " class="btn btn-outline-dark" >Pay Now </a>
+//                             </Link>
+//                         </div>
+//                     </div>
+//                 </div>
+//                   ))}
+//             </div>
+            
+ 
+// </div>
+// </div>
+// )
+// }
+// export default Designs;
+
+
+
+
+
+// <div  ClassName ="Button" >
+// <button className="cart" style={{
+
+// }}>
+// <i class="bi bi-person-bounding-box"></i>
+// </button>
+// </div>
+
+
+
+// // APP>JS
+// // import React, { useState } from 'react';
+// // import './App.css';
+// // import {ToastContainer} from 'react-toastify';
+// // import {Routes,Route,useLocation} from "react-router-dom";
+// // import Navbar from './Components/Navbar';
+// // import Footer from './Components/Footer';
+// // import AdminNavbar from './Components/Admin/AdminNavbar';
+// // import Home from './Components/Home';
+// // import About from './Components/About';
+// // import Design from './Components/Designs';
+// // import Contact from './Components/Contact';
+// // import Signup from './Components/Signup';
+// // import Order from './Components/Order';
+// // import DesignForm  from './Components/DesignForm'
+// // import Filter from './Components/Filter';
+// // import Dashboard from './Components/Admin/Dashboard';
+// // import DesignDetails from './Components/DesignDetails';
+// // import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+
+// // function App() {
+// //   const location = useLocation();
+// //   const isAdminPage = location.pathname.startsWith('/Admin');
+// //   // State to manage authentication status
+// //   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+// //   // Function to handle login/logout
+// //   const handleAuthAction = () => {
+// //     // Toggle authentication state
+// //     setIsLoggedIn(!isLoggedIn);
+// //   };
+
+// //   return (  
+// //     <div>
+  
+// //   <ToastContainer theme="dark"/>
+// //   {!isAdminPage && <Navbar  isLoggedIn={isLoggedIn} onAuthAction={handleAuthAction}  />}
+// //       <Routes>
+// //         <Route path="/Home" element={<Home />} isLoggedIn={isLoggedIn} onAuthAction={handleAuthAction} />
+// //         < Route path="/About" element={<About />}  onAuthAction={handleAuthAction}/>        
+// //         <Route path="/Designs" element={<Design />} onAuthAction={handleAuthAction} />
+// //         <Route path="/Signup" element={<Signup onAuthAction={handleAuthAction}  />} />
+// //         <Route path="/Contact" element={<Contact  onAuthAction={handleAuthAction}/>} />
+// //         <Route path="/DesignForm" element={<DesignForm />} />
+// //         <Route path="/Filter" element={<Filter onAuthAction={handleAuthAction}/>} />
+// //         <Route path="/Order" element={<Order/>} />
+// //         <Route path="/designs/:id" element={<DesignDetails />} />
+// //         <Route path="/Admin/*" element={<AdminNavbar/>} />
+// //       </Routes>
+// //       {!isAdminPage && <Footer />}
+// //       <Routes>
+// //         <Route path="/Admin/*" element={<Dashboard />} />
+// //       </Routes>
+// //     </div>
+// //   );
+// // }
+
+
+
+// // export default App;
+
+
+
+
+// app.js without admin 
+
+// import React, { useState } from 'react';
+// import './App.css';
+// import { ToastContainer } from 'react-toastify';
+// import { Routes, Route, Navigate } from 'react-router-dom';
+// import Navbar from './Components/Navbar';
+// import Footer from './Components/Footer';
+// import AdminNavbar from './Components/Admin/AdminNavbar';
+// import Home from './Components/Home';
+// import About from './Components/About';
+// import Design from './Components/Designs';
+// import Contact from './Components/Contact';
+// import Signup from './Components/Signup';
+// import Order from './Components/Order';
+// import DesignForm from './Components/DesignForm';
+// import Filter from './Components/Filter';
+// import Dashboard from './Components/Admin/Dashboard';
+// import DesignDetails from './Components/DesignDetails';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+// function App() {
+//   // State to manage authentication status
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//   // Function to handle login/logout
+//   const handleAuthAction = () => {
+//     // Toggle authentication state
+//     setIsLoggedIn(!isLoggedIn);
+//   };
+
+//   return (
+//     <div>
+//       <ToastContainer theme="dark" />
+//       <Routes>
+//         {/* Common layout for user pages */}
+//         <Route
+//           path="/*"
+//           element={
+//             <>
+//                 <Navbar isLoggedIn={isLoggedIn} onAuthAction={handleAuthAction} />
+            
+//               <Routes>
+//                 <Route path="/Home" element={<Home />} />
+//                 <Route path="/About" element={<About />} />
+//                 <Route path="/Designs" element={<Design />} />
+//                 <Route path="/Signup" element={<Signup onAuthAction={handleAuthAction} />} />
+//                 <Route path="/Contact" element={<Contact />} />
+//                 <Route path="/DesignForm" element={<DesignForm />} />
+//                 <Route path="/Filter" element={<Filter onAuthAction={handleAuthAction} />} />
+//                 <Route path="/Order" element={<Order />} />
+//                 <Route path="/designs/:id" element={<DesignDetails />} />
+//                 {/* Redirect to Home if no matching route is found */}
+//                 <Route path="*" element={<Navigate to="/Home" />} />
+//               </Routes>
+//               <Footer />
+//             </>
+//           }
+//         />
+
+//         {/* Admin layout */}
+//         <Route
+//           path="/Admin/*"
+//           element={
+//             <>
+//               <AdminNavbar />
+//               <Routes>
+//                 <Route path="/" element={<Dashboard />} />
+//               </Routes>
+//             </>
+//           }
+//         />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+// Add to cart backend
+// Cart.jsx
+
+// import React from 'react';
+// import { Link } from "react-router-dom";
+
+// function Cart() {
+   
+    
+//     const removeCart = (design) => {
+//         localStorage.removeItem('cartDesigns');
+//     }
+    
+   
+
+
+//   // Retrieve cart designs from local storage
+//   const cartDesigns = JSON.parse(localStorage.getItem('cartDesigns')) || [];
+
+//   return (
+//     <div>
+      
+//       <h2>Your Cart</h2>
+//   Please Check your designs Here
+//       {cartDesigns.map((design) => (
+       
+//         <div key={design.id}>
+      
+//               <li>name<strong>Name:</strong> {design && design.name}</li>
+//                <li><strong>Description:</strong> {design && design.description}</li>
+//                 <li><strong>Price:</strong> Rs{design && design.price}</li>
+//                 <li><strong>Size:</strong> {design && design.size}</li>
+//                 <li><strong>Sheet Size:</strong> {design && design.sheetsize}</li>
+//                 <li><strong>Category:</strong> {design && design.category}</li>
+//                 <button onClick={removeCart}>remove </button>
+            
+  
+//         </div>
+//       ))}
+//           <Link  className="btn btn-outline-dark" type="button" >Checkout</Link>
+//     </div>
+//   );
+// }
+
+// export default Cart;
+
+
+
+checkout 
+
+// import React from 'react';
+// import { Link } from "react-router-dom";
+// import Navbar from './Navbar';
+// const Filter = () => {
+ 
+//   return (
+    
+// <div>
+// <Navbar/>
+
+// <div className="container" >
+//       <h2>Checkout Successful</h2>
+//       <p>Your order might take some time to process.</p>
+//       <p>Check your order status at your profile after about 10mins.</p>
+//       <p>
+//         Incase of any inqueries 
+//         <strong>contact Us</strong>
+//         <Link  className="btn btn-outline-dark" type="button">Ok</Link>
+//       </p>
+// </div>
+
+
+
+// </div>
+//   );
+// };
+// export default Filter;
